@@ -5,7 +5,7 @@ apply plugin: 'idea'
 sourceCompatibility = 1.7
 version = '1.0'
 
-defaultTasks 'eclipse', 'idea'
+defaultTasks 'eclipse', 'idea', 'jar'
 
 sourceSets {
     main {
@@ -13,6 +13,14 @@ sourceSets {
             srcDirs = ["src"]
         }
     }
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'pos1_2ahif.sample_cracker.Main',
+                   'Class-Path': 'sample-safe-1.0.jar')
+    }
+    excludes = ['pos1_2ahif/sample_safe/**']
 }
 
 repositories {
